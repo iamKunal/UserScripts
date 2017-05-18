@@ -5,8 +5,8 @@
 // @version      1.1
 // @description  Change WhatsApp Web Chat Background
 // @author       Kunal Gupta < kunal.gupta@myself.com >
-// @icon         https://avatars2.githubusercontent.com/u/12411673?v=1&s=32
-// @icon64       https://avatars2.githubusercontent.com/u/12411673?v=1&s=64
+// @icon         hhttps://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg.png
+// @icon64       https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg64.png
 // @match        https://web.whatsapp.com/
 // @grant        GM_setValue
 // @grant        GM_getValue

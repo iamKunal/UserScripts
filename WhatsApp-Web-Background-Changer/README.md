@@ -8,4 +8,4 @@ This script can change the background colour of the WhatsApp Web interface.
 4. Wait a few seconds for the image to load.
 
 ## Updating
- Click on the TamperMonkey icon and then on `Check for userscript updates`.
+ Click on the TamperMonkey icon and then on `Check for userscript updates` and reload the WhatsApp Web tab/window.

@@ -2,7 +2,7 @@
 // @id           WhatsApp Web Background Changer
 // @name         WhatsApp Web Background Changer
 // @namespace    https://www.github.com/iamKunal
-// @version      1.0
+// @version      1.1
 // @description  Change WhatsApp Web Chat Background
 // @author       Kunal Gupta < kunal.gupta@myself.com >
 // @icon         https://avatars2.githubusercontent.com/u/12411673?v=1&s=32
@@ -10,6 +10,7 @@
 // @match        https://web.whatsapp.com/
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @updateURL
 // ==/UserScript==
 
 //Change the Background URL Here to change the Background Image
@@ -31,12 +32,15 @@ function createButton(){
     node.setAttribute("id","wa-bg-change-button");
     node.style.display="block";
     node.style.padding="10px 10px 10px 10px";
-    node.style.height="35px";
+    node.style.height="45px";
     node.style.background="#009688";
     node.style.position="absolute";
     node.style.right="0px";
     node.textContent="Change Chat Background";
     node.style.color="white";
+    node.style.borderRadius = "5px";
+    node.style.margin="20px";
+    node.style.boxShadow="black 2px 2px 6px 0px";
     node.addEventListener('click',askBG,false);
     a.appendChild(node);
 }

@@ -73,7 +73,6 @@ function getMenuReady(){
     var checkExist = setInterval(function() {
         if (document.querySelector("#main > header > div.pane-chat-controls > div > div:nth-child(3) > button")!==null) { //Check for Content to Load
             clearInterval(checkExist);
-            console.log("Menu Present");
             if(document.querySelector("#main > header > div.pane-chat-controls > div > div.menu-item.active > span > div")!==null && document.querySelectorAll("#main > header > div.pane-chat-controls > div > div.menu-item.active > span > div > ul > li").length==5){
                 lst=document.querySelector("#main > header > div.pane-chat-controls > div > div.menu-item.active > span > div > ul");
                 ele=document.querySelector("#main > header > div.pane-chat-controls > div > div.menu-item.active > span > div > ul > li").cloneNode();

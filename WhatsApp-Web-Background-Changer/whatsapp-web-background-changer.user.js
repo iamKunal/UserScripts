@@ -25,7 +25,8 @@ var bgURLold="https://images2.alphacoders.com/577/thumb-1920-577906.jpg";
     };
 })();
 function updateWP(){
-	var bgImage = GM_getValue("bgURL",bgURLold);
+    var chatName = document.querySelector('.active.chat .chat-body .chat-main .chat-title .emojitext.ellipsify').title;
+	var bgImage = GM_getValue(chatName,bgURLold);
     document.getElementsByClassName("pane-chat-msgs pane-chat-body lastTabIndex")[0].setAttribute("style","background-position: center;background-image: url(" + bgImage+");");
 }
 function getReady(){
@@ -34,14 +35,14 @@ function getReady(){
     node.setAttribute("id","wa-bg-change-button");
     node.style.display="block";
     node.style.padding="10px 10px 10px 10px";
-    node.style.height="45px";
+    node.style.height="30px";
     node.style.background="#009688";
     node.style.position="absolute";
-    node.style.right="0px";
-    node.textContent="Change Chat Background";
+    node.style.right="100px";
+    node.textContent="?";
     node.style.color="white";
-    node.style.borderRadius = "5px";
-    node.style.margin="20px";
+    node.style.borderRadius = "40px";
+    node.style.margin="18px";
     node.style.boxShadow="black 2px 2px 6px 0px";
     node.addEventListener('click',askBG,false);
     a.appendChild(node);
@@ -54,7 +55,8 @@ function getReady(){
 	fr = new FileReader();
 	fr.onload = function(){
 		if(input.files!==null){
-			GM_setValue("bgURL",fr.result);
+            var chatName = document.querySelector('.active.chat .chat-body .chat-main .chat-title .emojitext.ellipsify').title;
+			GM_setValue(chatName,fr.result);
 			document.body.click();
 		}
 	};

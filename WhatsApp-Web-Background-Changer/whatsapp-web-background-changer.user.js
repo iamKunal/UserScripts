@@ -45,7 +45,7 @@ function getReady(){
     node.style.width="30px";
     node.style.background="#009688";
     node.style.position="absolute";
-    node.style.right="100px";
+    node.style.right="160px";
     node.textContent="?";
     node.style.color="white";
     node.style.borderRadius = "15px";

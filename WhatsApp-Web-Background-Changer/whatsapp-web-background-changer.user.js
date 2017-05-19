@@ -2,7 +2,7 @@
 // @id           WhatsApp Web Background Changer
 // @name         WhatsApp Web Background Changer
 // @namespace    https://www.github.com/iamKunal
-// @version      3.1.0
+// @version      3.1.1
 // @description  Change WhatsApp Web Chat Background
 // @author       Kunal Gupta < kunal.gupta@myself.com >
 // @icon         https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg.png
@@ -14,7 +14,7 @@
 // ==/UserScript==
 
 //The default Wallpaper to Load
-var bgURLold="https://images2.alphacoders.com/577/thumb-1920-577906.jpg";
+var bgURLold="https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/default_wallpaper.jpg";
 
 (function() {
     'use strict';
@@ -92,5 +92,6 @@ function getMenuReady(){
         }
     }, 100);
 }
+
 
 

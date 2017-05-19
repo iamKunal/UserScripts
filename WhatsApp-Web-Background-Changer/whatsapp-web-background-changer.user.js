@@ -2,7 +2,7 @@
 // @id           WhatsApp Web Background Changer
 // @name         WhatsApp Web Background Changer
 // @namespace    https://www.github.com/iamKunal
-// @version      2.2
+// @version      2.3
 // @description  Change WhatsApp Web Chat Background
 // @author       Kunal Gupta < kunal.gupta@myself.com >
 // @icon         hhttps://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg.png
@@ -32,7 +32,7 @@ var bgURLold="https://images2.alphacoders.com/577/thumb-1920-577906.jpg";
 })();
 function updateWP(){
     var chatName = document.querySelector('.active.chat .chat-body .chat-main .chat-title .emojitext.ellipsify').title;
-	var bgImage = GM_getValue(chatName,bgURLold);
+	var bgImage = GM_getValue(chatName,GM_getValue("bgURL",bgURLold));
     document.getElementsByClassName("pane-chat-msgs pane-chat-body lastTabIndex")[0].setAttribute("style","background-position: center;background-image: url(" + bgImage+");");
 }
 function getReady(){
@@ -62,8 +62,14 @@ function getReady(){
     fr = new FileReader();
     fr.onload = function(){
         if(input.files!==null){
-            var chatName = document.querySelector('.active.chat .chat-body .chat-main .chat-title .emojitext.ellipsify').title;
-            GM_setValue(chatName,fr.result);
+            var thisChat = confirm("Press OK for only this Chat and Cancel for All Chats");
+            if(thisChat){
+                var chatName = document.querySelector('.active.chat .chat-body .chat-main .chat-title .emojitext.ellipsify').title;
+                GM_setValue(chatName,fr.result);
+            }
+            else{
+                GM_setValue("bgURL",fr.result);
+            }
             document.body.click();
         }
     };
@@ -76,3 +82,4 @@ function getReady(){
 function askBG(){
 	document.getElementById("wa-bg-change-input").click();
 }
+

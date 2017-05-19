@@ -2,7 +2,7 @@
 // @id           WhatsApp Web Background Changer
 // @name         WhatsApp Web Background Changer
 // @namespace    https://www.github.com/iamKunal
-// @version      2.0
+// @version      2.1
 // @description  Change WhatsApp Web Chat Background
 // @author       Kunal Gupta < kunal.gupta@myself.com >
 // @icon         hhttps://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg.png
@@ -10,19 +10,25 @@
 // @match        https://web.whatsapp.com/
 // @grant        GM_setValue
 // @grant        GM_getValue
-// @updateURL
+// @require      http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js
 // ==/UserScript==
 
 //The default Wallpaper to Load
 var bgURLold="https://images2.alphacoders.com/577/thumb-1920-577906.jpg";
 
-
 (function() {
     'use strict';
-	getReady();
-    document.onclick= function(event) {
-    	updateWP();
-    };
+   var checkExist = setInterval(function() {
+       if (!$('#startup').length) { //Check for Content to Load
+           clearInterval(checkExist);
+           getReady();
+           document.onclick= function(event) {
+               updateWP();
+           };
+       }
+   }, 100);
+
+
 })();
 function updateWP(){
 	var bgImage = GM_getValue("bgURL",bgURLold);
@@ -34,13 +40,14 @@ function getReady(){
     node.setAttribute("id","wa-bg-change-button");
     node.style.display="block";
     node.style.padding="10px 10px 10px 10px";
-    node.style.height="45px";
+    node.style.height="90px";
+    node.style.width="90px";
     node.style.background="#009688";
     node.style.position="absolute";
     node.style.right="0px";
     node.textContent="Change Chat Background";
     node.style.color="white";
-    node.style.borderRadius = "5px";
+    node.style.borderRadius = "45px";
     node.style.margin="20px";
     node.style.boxShadow="black 2px 2px 6px 0px";
     node.addEventListener('click',askBG,false);
@@ -51,16 +58,16 @@ function getReady(){
     input.style.display="none";
     input.accept="image/*";
     input.onchange=function(){
-	fr = new FileReader();
-	fr.onload = function(){
-		if(input.files!==null){
-			GM_setValue("bgURL",fr.result);
-			document.body.click();
-		}
-	};
-	if(input.files!==null){
-	fr.readAsDataURL(input.files[0]);
-	}
+        fr = new FileReader();
+        fr.onload = function(){
+            if(input.files!==null){
+                GM_setValue("bgURL",fr.result);
+                document.body.click();
+            }
+        };
+        if(input.files!==null){
+            fr.readAsDataURL(input.files[0]);
+        }
 	};
     a.appendChild(input);
 }

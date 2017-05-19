@@ -49,7 +49,7 @@ function getReady(){
     node.textContent="?";
     node.style.color="white";
     node.style.borderRadius = "15px";
-    node.style.margin="18px";
+    node.style.margin="14px";
     node.style.boxShadow="black 2px 2px 6px 0px";
     node.addEventListener('click',askBG,false);
     a.appendChild(node);
@@ -82,4 +82,3 @@ function getReady(){
 function askBG(){
 	document.getElementById("wa-bg-change-input").click();
 }
-

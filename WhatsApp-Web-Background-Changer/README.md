@@ -2,7 +2,7 @@
 This script can change the background image of the WhatsApp Web interface.
 
 ## Installing
-1. Install the [script by clicking here](https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/whatsapp-web-background-changer.user.js) after following [the instructions to install TamperMonkey/GreaseMonkey](https://github.com/iamKunal/UserScripts/blob/master/README.md).
+1. Install the script from [GreasyFork](https://greasyfork.org/en/scripts/29884-whatsapp-web-background-changer) or [OpenUserJS](https://openuserjs.org/scripts/iamKunal/WhatsApp_Web_Background_Changer) after following [the instructions to install TamperMonkey/GreaseMonkey](https://github.com/iamKunal/UserScripts/blob/master/README.md).
 2. Reload/Open the WhatsApp Web interface.
 3. Open up a chat and select `Change Background` from the menu to the right of Attachment Button.
 
@@ -17,4 +17,5 @@ This script can change the background image of the WhatsApp Web interface.
 
 ## Updating
  Click on the TamperMonkey icon and then on `Check for userscript updates` and reload the WhatsApp Web tab/window.
+
 

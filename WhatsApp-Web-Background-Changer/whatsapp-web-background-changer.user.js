@@ -2,8 +2,8 @@
 // @id           WhatsApp Web Background Changer
 // @name         WhatsApp Web Background Changer
 // @namespace    https://www.github.com/iamKunal
-// @version      3.2
-// @description  Change WhatsApp Web Chat Background
+// @version      3.2.1
+// @description  Changes the WhatsApp Web Chat Wallpaper/Background. One can even select different wallpapers for different chats.
 // @author       Kunal Gupta < kunal.gupta@myself.com >
 // @icon         https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg.png
 // @icon64       https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg64.png

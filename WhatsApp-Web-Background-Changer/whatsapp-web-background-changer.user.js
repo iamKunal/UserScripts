@@ -34,7 +34,7 @@ var bgURLold="https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Ba
 function updateWP(){
     var chatName = document.querySelector('.active.chat .chat-body .chat-main .chat-title .emojitext.ellipsify').title;
     var bgImage = GM_getValue(chatName,GM_getValue("bgURL",bgURLold));
-    document.getElementsByClassName("pane-chat-msgs pane-chat-body lastTabIndex")[0].setAttribute("style","background-position: center;background-image: url(" + bgImage+");");
+     document.getElementsByClassName("pane-chat-msgs pane-chat-body lastTabIndex")[0].setAttribute("style","background-position: center;background-image: url(" + bgImage+"); -webkit-transition: background-image 0.2s ease-in-out; transition: background-image 0.2s ease-in-out;");
 }
 function getInputReady(){
     var a=document.getElementsByTagName("body")[0];

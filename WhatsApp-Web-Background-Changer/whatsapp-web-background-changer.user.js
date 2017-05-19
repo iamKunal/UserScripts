@@ -2,7 +2,7 @@
 // @id           WhatsApp Web Background Changer
 // @name         WhatsApp Web Background Changer
 // @namespace    https://www.github.com/iamKunal
-// @version      3.1.3
+// @version      3.2
 // @description  Change WhatsApp Web Chat Background
 // @author       Kunal Gupta < kunal.gupta@myself.com >
 // @icon         https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg.png
@@ -15,6 +15,17 @@
 
 //The default Wallpaper to Load
 var bgURLold="https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/default_wallpaper.jpg";
+
+//HTML for The Confirmation Dialog
+var dialogHTML=`<div tabindex="-1" class="" style="opacity: 1;"><div tabindex="-1"><div class="backdrop"><div class="popup-container"><div class="popup" style="opacity: 1; transform: scaleX(1) scaleY(1);"><div class="popup-body">
+<div class="popup-title">Change Chat Wallpaper</div>
+<div class="popup-contents"><span class="emojitext" dir="auto">Which chat would you like to apply this wallpaper to?</span></div></div>
+<div class="popup-controls">
+<button class="btn-plain popup-controls-item">Cancel</button>
+<button class="btn-plain btn-default popup-controls-item">All Chats</button>
+<button class="btn-plain btn-default popup-controls-item">This Chat</button>
+</div></div></div></div></div></div>`;
+
 
 (function() {
     'use strict';
@@ -48,16 +59,7 @@ function getInputReady(){
         fr = new FileReader();
         fr.onload = function(){
             if(input.files!==null){
-                var thisChat = null;
-                thisChat = confirm("Press OK for only this Chat and Cancel for All Chats");
-                if(thisChat){
-                    var chatName = document.querySelector('.active.chat .chat-body .chat-main .chat-title .emojitext.ellipsify').title;
-                    GM_setValue(chatName,fr.result);
-                }
-                else{
-                    GM_setValue("bgURL",fr.result);
-                }
-                document.body.click();
+                getDialogInput(fr.result);
             }
         };
         if(input.files!==null){
@@ -91,6 +93,27 @@ function getMenuReady(){
         }
     }, 100);
 }
+function getDialogInput(result){ // Uses the WhatsApp Web DialogUI
+    var div = document.createElement("span");
+    div.id="Custom-Alerter";
+    div.innerHTML=dialogHTML;
+    acd=document.querySelector("#app > div");
+    acd.appendChild(div);
+    var buttonsPath="#Custom-Alerter > div > div > div > div > div > div.popup-controls";
 
-
-
+    var buttonsList=document.querySelector(buttonsPath).children;
+    buttonsList[0].onclick=(function(){ //Cancel
+        acd.lastChild.remove();
+    });
+    buttonsList[1].onclick=(function(){ //All Chats
+        GM_setValue("bgURL",fr.result);
+        document.body.click();
+        acd.lastChild.remove();
+    });
+    buttonsList[2].onclick=(function(){ //This Chat
+        var chatName = document.querySelector('.active.chat .chat-body .chat-main .chat-title .emojitext.ellipsify').title;
+        GM_setValue(chatName,fr.result);
+        document.body.click();
+        acd.lastChild.remove();
+    });
+}

@@ -6,7 +6,7 @@ This script can change the background colour of the WhatsApp Web interface.
 2. Reload/Open the WhatsApp Web interface.
 3. Open up a chat and select `Change Background` from the menu to the right of Attachment Button.
 4. Browse and select the image you want to select as Wallpaper.
-5. Press `OK` for saving the select image as wallpaper for current chat and `Cancel` for saving the image as wallpapers for all chats that do not have their specific wallpaper set.
+5. Press the respective button to set the selected wallpaper for All Chats or the Current Chat.
 6. Wait a few seconds for the image to load.
 
 ## Updating

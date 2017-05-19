@@ -2,7 +2,7 @@
 // @id           WhatsApp Web Background Changer
 // @name         WhatsApp Web Background Changer
 // @namespace    https://www.github.com/iamKunal
-// @version      3.0.1
+// @version      3.1.0
 // @description  Change WhatsApp Web Chat Background
 // @author       Kunal Gupta < kunal.gupta@myself.com >
 // @icon         https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg.png
@@ -82,12 +82,15 @@ function getMenuReady(){
                 ele_a.title=cb;
                 ele_a.textContent=cb;
                 ele.addEventListener('click',askBG,false);
-                ele.addEventListener('mouseover',(function(){ele.classList.add("highlighted-menu-item");}));
-                ele.addEventListener('mouseout',(function(){ele.classList.remove("highlighted-menu-item");}));
+                ele.addEventListener('mouseover',(function(){ele.style.boxShadow="inset 20px 0px 20px 11px #f4f5f5";}));
+                ele.addEventListener('mouseout',(function(){ele.style.boxShadow="";}));
                 ele.appendChild(ele_a);
+                ele.classList.add("wa-bg-change-button");
+                ele.setAttribute("style",ele.getAttribute("style")+"background: url(https://github.com/iamKunal/UserScripts/raw/master/WhatsApp-Web-Background-Changer/assets/wa-bg.png); background-repeat: no-repeat; background-size: 25px; background-position-x: 90%; background-position-y: 5px;");
                 lst.appendChild(ele);
             }
         }
     }, 100);
 }
+
 
